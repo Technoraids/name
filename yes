@@ -1,0 +1,137 @@
+local ScreenGui = Instance.new("ScreenGui")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
+local TextButton_3 = Instance.new("TextButton")
+local TextButton_4 = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Workspace
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ScrollingFrame.Parent = ScreenGui
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(75, 17, 3)
+ScrollingFrame.BorderSizePixel = 5
+ScrollingFrame.Position = UDim2.new(0.736880422, 0, 0.485010684, 0)
+ScrollingFrame.Size = UDim2.new(0, 354, 0, 481)
+
+TextLabel.Parent = ScrollingFrame
+TextLabel.BackgroundColor3 = Color3.fromRGB(66, 66, 66)
+TextLabel.BorderSizePixel = 5
+TextLabel.Position = UDim2.new(0, 0, 0.0010706638, 0)
+TextLabel.Size = UDim2.new(0, 335, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "GAME HUB V0.0.1"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 50.000
+
+TextButton.Parent = ScrollingFrame
+TextButton.BackgroundColor3 = Color3.fromRGB(126, 0, 0)
+TextButton.Position = UDim2.new(0, 0, 0.0281504467, 0)
+TextButton.Size = UDim2.new(0, 87, 0, 50)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "comeing soon"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+
+TextButton_2.Parent = ScrollingFrame
+TextButton_2.BackgroundColor3 = Color3.fromRGB(126, 0, 0)
+TextButton_2.Position = UDim2.new(0.710601747, 0, 0.0281504467, 0)
+TextButton_2.Size = UDim2.new(0, 87, 0, 50)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = "NOCLIP"
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 14.000
+
+TextButton_3.Parent = ScrollingFrame
+TextButton_3.BackgroundColor3 = Color3.fromRGB(126, 0, 0)
+TextButton_3.Position = UDim2.new(0.249283701, 0, 0.0281504467, 0)
+TextButton_3.Size = UDim2.new(0, 87, 0, 50)
+TextButton_3.Font = Enum.Font.SourceSans
+TextButton_3.Text = "SPEED "
+TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.TextSize = 14.000
+
+TextButton_4.Parent = ScrollingFrame
+TextButton_4.BackgroundColor3 = Color3.fromRGB(126, 0, 0)
+TextButton_4.Position = UDim2.new(0.461318076, 0, 0.0281504467, 0)
+TextButton_4.Size = UDim2.new(0, 87, 0, 50)
+TextButton_4.Font = Enum.Font.SourceSans
+TextButton_4.Text = "XRAY"
+TextButton_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_4.TextSize = 14.000
+
+TextLabel_2.Parent = ScrollingFrame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(66, 66, 66)
+TextLabel_2.BorderSizePixel = 5
+TextLabel_2.Position = UDim2.new(0, 0, 0.0546038561, 0)
+TextLabel_2.Size = UDim2.new(0, 335, 0, 50)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "HUB1"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 50.000
+
+-- Scripts:
+
+local function IJPGC_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	
+	
+end
+coroutine.wrap(IJPGC_fake_script)()
+local function ECUDAB_fake_script() -- TextButton_2.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_2)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		game:GetService("RunService").Stepped:Connect(function()
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+		end)
+	end)
+end
+coroutine.wrap(ECUDAB_fake_script)()
+local function DCJIYYI_fake_script() -- TextButton_3.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_3)
+
+	local button = script.Parent
+	local player = game.Players.LocalPlayer
+	
+	button.MouseButton1Down:Connect(function()
+		player.Character.Humanoid.WalkSpeed = 50
+	end)
+end
+coroutine.wrap(DCJIYYI_fake_script)()
+local function CNEDUO_fake_script() -- TextButton_4.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_4)
+
+	script.Parent.MouseButton1Click:Connect(function()		
+		if script.Parent.Text == "XRay:Off" then							
+			script.Parent.BackgroundColor3 = Color3.fromRGB(0, 255, 0)				
+			script.Parent.Text = "XRay:On"
+			for i, descendant in pairs(workspace:GetDescendants()) do
+				if descendant:IsA("BasePart") then	
+					if not descendant:FindFirstChild("OriginalTransparency") then
+						local originalTransparency = Instance.new("NumberValue")
+						originalTransparency.Name = "OriginalTransparency"
+						originalTransparency.Value = descendant.Transparency
+						originalTransparency.Parent = descendant
+					end
+					descendant.Transparency = 0.5
+				end
+			end
+		else				
+			script.Parent.BackgroundColor3 = Color3.fromRGB(255, 0, 0)		
+			script.Parent.Text = "XRay:Off"
+			for i, descendant in pairs(workspace:GetDescendants()) do
+				if descendant:IsA("BasePart") then	
+					descendant.Transparency = descendant.OriginalTransparency.Value
+				end
+			end
+		end
+	end)
+end
+coroutine.wrap(CNEDUO_fake_script)()
